@@ -24,8 +24,8 @@ public class Inventory extends javax.swing.JFrame {
     {
         try
                 {
-                    String query = "select * from TALHA.ITEMS";
-                    myCon = DriverManager.getConnection("jdbc:derby://localhost:1527/autoshop", "talha", "1234");
+                    String query = "select * from AUTO.ITEMS";
+                    myCon = DriverManager.getConnection("jdbc:derby://localhost:1527/autoshop", "auto", "1234");
                     myStat=myCon.createStatement();
                     myRes = myStat.executeQuery(query);
                     DefaultTableModel model = (DefaultTableModel)tableStock.getModel();
@@ -414,7 +414,7 @@ public class Inventory extends javax.swing.JFrame {
     private void btnDeleteItemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDeleteItemActionPerformed
         // TODO add your handling code here:
         try{
-        String query = "Delete from TALHA.ITEMS where ID="+fieldItemID.getText();
+        String query = "Delete from AUTO.ITEMS where ID="+fieldItemID.getText();
         Statement del = myCon.createStatement();
         del.executeUpdate(query);
         System.out.println("Item Deleted Successfully");
@@ -450,7 +450,7 @@ public class Inventory extends javax.swing.JFrame {
         int price = Integer.parseInt(fieldUpdateItemPrice.getText());
         String id = fieldItemID.getText();
             try{
-        String query = "Update TALHA.ITEMS Set PRICE = "+price+" , QTY = "+qty+" ,  ITEMNAME = '"+name+"' "+"  ,CATEGORY = '"+cat+"'"+"  where ID="+fieldItemID.getText();
+        String query = "Update AUTO.ITEMS Set PRICE = "+price+" , QTY = "+qty+" ,  ITEMNAME = '"+name+"' "+"  ,CATEGORY = '"+cat+"'"+"  where ID="+fieldItemID.getText();
         Statement upd = myCon.createStatement();
         upd.executeUpdate(query);
         System.out.println("Item Updated Successfully");
