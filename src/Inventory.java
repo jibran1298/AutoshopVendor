@@ -22,7 +22,7 @@ public class Inventory extends javax.swing.JFrame {
     }
     public void getStock()
     {
-        try
+              try
                 {
                     String query = "select * from AUTO.ITEMS";
                     myCon = DriverManager.getConnection("jdbc:derby://localhost:1527/autoshop", "auto", "1234");
@@ -430,7 +430,7 @@ public class Inventory extends javax.swing.JFrame {
     private void btnAddItemNewActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAddItemNewActionPerformed
         // TODO add your handling code here:
         AddNew ad = new AddNew();
-        //ad.show();
+        ad.show();
     }//GEN-LAST:event_btnAddItemNewActionPerformed
 
     private void btnUpdateItemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnUpdateItemActionPerformed
@@ -486,19 +486,19 @@ public class Inventory extends javax.swing.JFrame {
 
     private void tableStockMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tableStockMouseClicked
         // TODO add your handling code here:
-         int row = tableStock.getSelectedRow();
-                        String id = tableStock.getModel().getValueAt(row, 0).toString();  
-                        String name = tableStock.getModel().getValueAt(row, 1).toString();
-                        String qty = tableStock.getModel().getValueAt(row, 2).toString();
-                        String cat = tableStock.getModel().getValueAt(row, 3).toString();
-                        String price = tableStock.getModel().getValueAt(row, 4).toString();
-                        fieldItemID.setText(id);
-                        fieldUpdateItemName.setText(name);
-                        fieldUpdateItemQty.setText(qty);
-                        fieldUpdateItemCategory.setText(cat);
-                        fieldUpdateItemPrice.setText(price);
-                        btnUpdateItem.setEnabled(true);
-                        btnDeleteItem.setEnabled(true);
+            int row = tableStock.getSelectedRow();
+            String id = tableStock.getModel().getValueAt(row, 0).toString();  
+            String name = tableStock.getModel().getValueAt(row, 1).toString();
+            String qty = tableStock.getModel().getValueAt(row, 2).toString();
+            String cat = tableStock.getModel().getValueAt(row, 3).toString();
+            String price = tableStock.getModel().getValueAt(row, 4).toString();
+            fieldItemID.setText(id);
+            fieldUpdateItemName.setText(name);
+            fieldUpdateItemQty.setText(qty);
+            fieldUpdateItemCategory.setText(cat);
+            fieldUpdateItemPrice.setText(price);
+            btnUpdateItem.setEnabled(true);
+            btnDeleteItem.setEnabled(true);
     }//GEN-LAST:event_tableStockMouseClicked
 
     private void tableStockMouseReleased(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tableStockMouseReleased
