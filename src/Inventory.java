@@ -431,6 +431,7 @@ public class Inventory extends javax.swing.JFrame {
         // TODO add your handling code here:
         AddNew ad = new AddNew();
         ad.show();
+        this.dispose();
     }//GEN-LAST:event_btnAddItemNewActionPerformed
 
     private void btnUpdateItemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnUpdateItemActionPerformed
