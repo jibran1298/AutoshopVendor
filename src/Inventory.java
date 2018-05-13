@@ -4,6 +4,7 @@ import java.sql.DriverManager;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+import javax.swing.JOptionPane;
 import javax.swing.event.ListSelectionEvent;
 import javax.swing.event.ListSelectionListener;
 import javax.swing.table.DefaultTableModel;
@@ -418,6 +419,8 @@ public class Inventory extends javax.swing.JFrame {
         Statement del = myCon.createStatement();
         del.executeUpdate(query);
         System.out.println("Item Deleted Successfully");
+        
+        JOptionPane.showMessageDialog(null, "A basic JOptionPane message dialog");
         }
         catch(SQLException e)
         {

@@ -28,6 +28,7 @@ public class Main extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        jComboBox1 = new javax.swing.JComboBox<>();
         labelHeading = new javax.swing.JLabel();
         labelDateTime = new javax.swing.JLabel();
         jSeparator1 = new javax.swing.JSeparator();
@@ -38,7 +39,8 @@ public class Main extends javax.swing.JFrame {
         btnBackup = new javax.swing.JButton();
         btnReports = new javax.swing.JButton();
         jButton7 = new javax.swing.JButton();
-        jPanel2 = new javax.swing.JPanel();
+
+        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setResizable(false);
@@ -51,56 +53,65 @@ public class Main extends javax.swing.JFrame {
         labelDateTime.setForeground(new java.awt.Color(102, 102, 102));
         labelDateTime.setText("7:46 PM - 30 April 2018");
 
-        btnInventory.setFont(new java.awt.Font("Segoe UI Symbol", 1, 30)); // NOI18N
+        btnInventory.setFont(new java.awt.Font("Segoe UI Symbol", 1, 27)); // NOI18N
+        btnInventory.setIcon(new javax.swing.ImageIcon("/home/jibran/Downloads/icons8-open-box-filled-70.png")); // NOI18N
         btnInventory.setText("Inventory");
+        btnInventory.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        btnInventory.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
         btnInventory.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnInventoryActionPerformed(evt);
             }
         });
 
-        btnNewSale.setFont(new java.awt.Font("Segoe UI Symbol", 1, 30)); // NOI18N
+        btnNewSale.setFont(new java.awt.Font("Segoe UI Symbol", 1, 27)); // NOI18N
+        btnNewSale.setIcon(new javax.swing.ImageIcon("/home/jibran/Downloads/icons8-pos-terminal-70.png")); // NOI18N
         btnNewSale.setText("Sale");
+        btnNewSale.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        btnNewSale.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
         btnNewSale.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnNewSaleActionPerformed(evt);
             }
         });
 
-        btnEmployees.setFont(new java.awt.Font("Segoe UI Symbol", 1, 30)); // NOI18N
+        btnEmployees.setFont(new java.awt.Font("Segoe UI Symbol", 1, 27)); // NOI18N
+        btnEmployees.setIcon(new javax.swing.ImageIcon("/home/jibran/Downloads/icons8-contacts-70.png")); // NOI18N
         btnEmployees.setText("Employees");
+        btnEmployees.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        btnEmployees.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
 
-        btnSettings.setFont(new java.awt.Font("Segoe UI Symbol", 1, 30)); // NOI18N
+        btnSettings.setFont(new java.awt.Font("Segoe UI Symbol", 1, 27)); // NOI18N
+        btnSettings.setIcon(new javax.swing.ImageIcon("/home/jibran/Downloads/icons8-administrative-tools-70.png")); // NOI18N
         btnSettings.setText("Settings");
+        btnSettings.setToolTipText("Settings");
+        btnSettings.setAlignmentY(0.0F);
+        btnSettings.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        btnSettings.setMargin(new java.awt.Insets(1, 1, 1, 1));
+        btnSettings.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
 
-        btnBackup.setFont(new java.awt.Font("Segoe UI Symbol", 1, 30)); // NOI18N
+        btnBackup.setFont(new java.awt.Font("Segoe UI Symbol", 1, 27)); // NOI18N
+        btnBackup.setIcon(new javax.swing.ImageIcon("/home/jibran/Downloads/icons8-data-backup-70.png")); // NOI18N
         btnBackup.setText("Backup ");
+        btnBackup.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        btnBackup.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
 
-        btnReports.setFont(new java.awt.Font("Segoe UI Symbol", 1, 30)); // NOI18N
+        btnReports.setFont(new java.awt.Font("Segoe UI Symbol", 1, 27)); // NOI18N
+        btnReports.setIcon(new javax.swing.ImageIcon("/home/jibran/Downloads/icons8-increase-70.png")); // NOI18N
         btnReports.setText("Reports");
+        btnReports.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        btnReports.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
 
         jButton7.setBackground(new java.awt.Color(204, 0, 0));
         jButton7.setFont(new java.awt.Font("Segoe UI Symbol", 1, 20)); // NOI18N
         jButton7.setForeground(new java.awt.Color(255, 255, 255));
+        jButton7.setIcon(new javax.swing.ImageIcon("/home/jibran/Downloads/icons8-logout-rounded-up-filled-35.png")); // NOI18N
         jButton7.setText("Log Out");
         jButton7.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton7ActionPerformed(evt);
             }
         });
-
-        jPanel2.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
-
-        javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
-        jPanel2.setLayout(jPanel2Layout);
-        jPanel2Layout.setHorizontalGroup(
-            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 294, Short.MAX_VALUE)
-        );
-        jPanel2Layout.setVerticalGroup(
-            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 354, Short.MAX_VALUE)
-        );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -112,30 +123,26 @@ public class Main extends javax.swing.JFrame {
                     .addComponent(jSeparator1)
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(labelHeading)
+                            .addComponent(labelDateTime))
+                        .addGap(135, 135, 135)
+                        .addComponent(jButton7, javax.swing.GroupLayout.PREFERRED_SIZE, 171, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(layout.createSequentialGroup()
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(labelHeading)
-                                    .addComponent(labelDateTime))
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(jButton7, javax.swing.GroupLayout.PREFERRED_SIZE, 171, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addComponent(btnReports, javax.swing.GroupLayout.PREFERRED_SIZE, 192, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(btnBackup, javax.swing.GroupLayout.PREFERRED_SIZE, 192, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(btnSettings, javax.swing.GroupLayout.PREFERRED_SIZE, 209, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addGroup(layout.createSequentialGroup()
-                                .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                    .addGroup(layout.createSequentialGroup()
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                        .addComponent(btnReports, javax.swing.GroupLayout.PREFERRED_SIZE, 192, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addGap(18, 18, 18)
-                                        .addComponent(btnBackup, javax.swing.GroupLayout.PREFERRED_SIZE, 192, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addGap(18, 18, 18)
-                                        .addComponent(btnSettings, javax.swing.GroupLayout.PREFERRED_SIZE, 209, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                    .addGroup(layout.createSequentialGroup()
-                                        .addGap(24, 24, 24)
-                                        .addComponent(btnNewSale, javax.swing.GroupLayout.PREFERRED_SIZE, 192, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addGap(18, 18, 18)
-                                        .addComponent(btnInventory, javax.swing.GroupLayout.PREFERRED_SIZE, 192, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addGap(18, 18, 18)
-                                        .addComponent(btnEmployees, javax.swing.GroupLayout.PREFERRED_SIZE, 209, javax.swing.GroupLayout.PREFERRED_SIZE)))))
-                        .addContainerGap())))
+                                .addComponent(btnNewSale, javax.swing.GroupLayout.PREFERRED_SIZE, 192, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(btnInventory, javax.swing.GroupLayout.PREFERRED_SIZE, 192, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(btnEmployees, javax.swing.GroupLayout.PREFERRED_SIZE, 209, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGap(0, 0, Short.MAX_VALUE))))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -149,20 +156,17 @@ public class Main extends javax.swing.JFrame {
                     .addComponent(jButton7, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(btnNewSale, javax.swing.GroupLayout.PREFERRED_SIZE, 152, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(btnInventory, javax.swing.GroupLayout.PREFERRED_SIZE, 152, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(btnEmployees, javax.swing.GroupLayout.PREFERRED_SIZE, 152, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(52, 52, 52)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(btnReports, javax.swing.GroupLayout.PREFERRED_SIZE, 152, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(btnBackup, javax.swing.GroupLayout.PREFERRED_SIZE, 152, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(btnSettings, javax.swing.GroupLayout.PREFERRED_SIZE, 152, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                    .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(btnEmployees, javax.swing.GroupLayout.PREFERRED_SIZE, 152, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnInventory, javax.swing.GroupLayout.PREFERRED_SIZE, 152, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnNewSale, javax.swing.GroupLayout.PREFERRED_SIZE, 152, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(btnBackup, javax.swing.GroupLayout.PREFERRED_SIZE, 152, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnReports, javax.swing.GroupLayout.PREFERRED_SIZE, 152, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnSettings, javax.swing.GroupLayout.PREFERRED_SIZE, 152, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap())
         );
 
         pack();
@@ -234,7 +238,7 @@ public class Main extends javax.swing.JFrame {
     private javax.swing.JButton btnReports;
     private javax.swing.JButton btnSettings;
     private javax.swing.JButton jButton7;
-    private javax.swing.JPanel jPanel2;
+    private javax.swing.JComboBox<String> jComboBox1;
     private javax.swing.JSeparator jSeparator1;
     private javax.swing.JLabel labelDateTime;
     private javax.swing.JLabel labelHeading;
