@@ -54,8 +54,9 @@ public class Main extends javax.swing.JFrame {
         labelDateTime.setText("7:46 PM - 30 April 2018");
 
         btnInventory.setFont(new java.awt.Font("Segoe UI Symbol", 1, 27)); // NOI18N
-        btnInventory.setIcon(new javax.swing.ImageIcon("/home/jibran/Downloads/icons8-open-box-filled-70.png")); // NOI18N
+        btnInventory.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/icons8-open-box-filled-70.png"))); // NOI18N
         btnInventory.setText("Inventory");
+        btnInventory.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         btnInventory.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         btnInventory.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
         btnInventory.addActionListener(new java.awt.event.ActionListener() {
@@ -65,8 +66,9 @@ public class Main extends javax.swing.JFrame {
         });
 
         btnNewSale.setFont(new java.awt.Font("Segoe UI Symbol", 1, 27)); // NOI18N
-        btnNewSale.setIcon(new javax.swing.ImageIcon("/home/jibran/Downloads/icons8-pos-terminal-70.png")); // NOI18N
+        btnNewSale.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/icons8-pos-terminal-70.png"))); // NOI18N
         btnNewSale.setText("Sale");
+        btnNewSale.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         btnNewSale.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         btnNewSale.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
         btnNewSale.addActionListener(new java.awt.event.ActionListener() {
@@ -76,36 +78,40 @@ public class Main extends javax.swing.JFrame {
         });
 
         btnEmployees.setFont(new java.awt.Font("Segoe UI Symbol", 1, 27)); // NOI18N
-        btnEmployees.setIcon(new javax.swing.ImageIcon("/home/jibran/Downloads/icons8-contacts-70.png")); // NOI18N
+        btnEmployees.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/icons8-contacts-70.png"))); // NOI18N
         btnEmployees.setText("Employees");
+        btnEmployees.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         btnEmployees.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         btnEmployees.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
 
         btnSettings.setFont(new java.awt.Font("Segoe UI Symbol", 1, 27)); // NOI18N
-        btnSettings.setIcon(new javax.swing.ImageIcon("/home/jibran/Downloads/icons8-administrative-tools-70.png")); // NOI18N
+        btnSettings.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/icons8-administrative-tools-70.png"))); // NOI18N
         btnSettings.setText("Settings");
         btnSettings.setToolTipText("Settings");
         btnSettings.setAlignmentY(0.0F);
+        btnSettings.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         btnSettings.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         btnSettings.setMargin(new java.awt.Insets(1, 1, 1, 1));
         btnSettings.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
 
         btnBackup.setFont(new java.awt.Font("Segoe UI Symbol", 1, 27)); // NOI18N
-        btnBackup.setIcon(new javax.swing.ImageIcon("/home/jibran/Downloads/icons8-data-backup-70.png")); // NOI18N
+        btnBackup.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/icons8-data-backup-70.png"))); // NOI18N
         btnBackup.setText("Backup ");
+        btnBackup.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         btnBackup.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         btnBackup.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
 
         btnReports.setFont(new java.awt.Font("Segoe UI Symbol", 1, 27)); // NOI18N
-        btnReports.setIcon(new javax.swing.ImageIcon("/home/jibran/Downloads/icons8-increase-70.png")); // NOI18N
+        btnReports.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/icons8-increase-70.png"))); // NOI18N
         btnReports.setText("Reports");
+        btnReports.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         btnReports.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         btnReports.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
 
         jButton7.setBackground(new java.awt.Color(204, 0, 0));
         jButton7.setFont(new java.awt.Font("Segoe UI Symbol", 1, 20)); // NOI18N
         jButton7.setForeground(new java.awt.Color(255, 255, 255));
-        jButton7.setIcon(new javax.swing.ImageIcon("/home/jibran/Downloads/icons8-logout-rounded-up-filled-35.png")); // NOI18N
+        jButton7.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/icons8-logout-rounded-up-filled-35.png"))); // NOI18N
         jButton7.setText("Log Out");
         jButton7.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -120,14 +126,6 @@ public class Main extends javax.swing.JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jSeparator1)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(labelHeading)
-                            .addComponent(labelDateTime))
-                        .addGap(135, 135, 135)
-                        .addComponent(jButton7, javax.swing.GroupLayout.PREFERRED_SIZE, 171, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(layout.createSequentialGroup()
@@ -142,7 +140,18 @@ public class Main extends javax.swing.JFrame {
                                 .addComponent(btnInventory, javax.swing.GroupLayout.PREFERRED_SIZE, 192, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addComponent(btnEmployees, javax.swing.GroupLayout.PREFERRED_SIZE, 209, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                        .addGap(0, 0, Short.MAX_VALUE))))
+                        .addGap(0, 0, Short.MAX_VALUE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jSeparator1)
+                            .addGroup(layout.createSequentialGroup()
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(labelHeading)
+                                    .addComponent(labelDateTime))
+                                .addGap(135, 135, 135)
+                                .addComponent(jButton7, javax.swing.GroupLayout.PREFERRED_SIZE, 171, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(0, 0, Short.MAX_VALUE)))
+                        .addContainerGap())))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -161,7 +170,7 @@ public class Main extends javax.swing.JFrame {
                     .addComponent(btnEmployees, javax.swing.GroupLayout.PREFERRED_SIZE, 152, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(btnInventory, javax.swing.GroupLayout.PREFERRED_SIZE, 152, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(btnNewSale, javax.swing.GroupLayout.PREFERRED_SIZE, 152, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
+                .addGap(7, 7, 7)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(btnBackup, javax.swing.GroupLayout.PREFERRED_SIZE, 152, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(btnReports, javax.swing.GroupLayout.PREFERRED_SIZE, 152, javax.swing.GroupLayout.PREFERRED_SIZE)

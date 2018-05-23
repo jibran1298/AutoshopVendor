@@ -420,7 +420,7 @@ public class Inventory extends javax.swing.JFrame {
         del.executeUpdate(query);
         System.out.println("Item Deleted Successfully");
         
-        JOptionPane.showMessageDialog(null, "A basic JOptionPane message dialog");
+        JOptionPane.showMessageDialog(null, "Item Deleted");
         }
         catch(SQLException e)
         {
