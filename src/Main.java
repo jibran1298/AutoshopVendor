@@ -76,6 +76,11 @@ public class Main extends javax.swing.JFrame {
         btnEmployees.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         btnEmployees.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         btnEmployees.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
+        btnEmployees.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnEmployeesActionPerformed(evt);
+            }
+        });
 
         btnSettings.setFont(new java.awt.Font("Segoe UI Symbol", 1, 27)); // NOI18N
         btnSettings.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/icons8-administrative-tools-70.png"))); // NOI18N
@@ -184,6 +189,13 @@ public class Main extends javax.swing.JFrame {
         
         
     }//GEN-LAST:event_btnInventoryActionPerformed
+
+    private void btnEmployeesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEmployeesActionPerformed
+        // TODO add your handling code here:
+         this.dispose();
+        Employees emp = new Employees();
+        emp.show();
+    }//GEN-LAST:event_btnEmployeesActionPerformed
 
     /**
      * @param args the command line arguments

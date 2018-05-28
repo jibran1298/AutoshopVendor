@@ -399,6 +399,35 @@ public class Inventory extends javax.swing.JFrame {
 
     private void btnSearchItemIdActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSearchItemIdActionPerformed
      // TODO add your handling code here:
+     
+     int searchId = Integer.parseInt(fieldSearchItemId.getText());
+     try
+                {
+                    String query = "select * from AUTO.ITEMS WHERE ID="+searchId+" ";
+                    myCon = DriverManager.getConnection("jdbc:derby://localhost:1527/autoshop", "auto", "1234");
+                    myStat=myCon.createStatement();
+                    myRes = myStat.executeQuery(query);
+                    DefaultTableModel model = (DefaultTableModel)tableStock.getModel();
+                    model.setRowCount(0);
+                   
+                    while(myRes.next())
+                    {
+                        int id = myRes.getInt("ID");
+                        String itemName= myRes.getString("itemName");
+                        int qty= myRes.getInt("qty");
+                        int price= myRes.getInt("price");
+                        String cat = myRes.getString("category");
+                        
+                        model.addRow(new Object[]{id, itemName, qty,cat,price});
+                    }
+                }
+                catch(SQLException e)
+                {
+                    e.printStackTrace();
+                    System.out.println(e);
+                }
+     
+     
     }//GEN-LAST:event_btnSearchItemIdActionPerformed
 
     private void btnBackActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBackActionPerformed
@@ -411,10 +440,39 @@ public class Inventory extends javax.swing.JFrame {
 
     private void btnSearchItemNameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSearchItemNameActionPerformed
         // TODO add your handling code here:
+        String searchName = fieldSearchItemName.getText();
+        System.out.println(searchName);
+     try
+                {
+                    String query = "select * from AUTO.ITEMS WHERE ITEMNAME Like '%"+searchName+"%' ";
+                    myCon = DriverManager.getConnection("jdbc:derby://localhost:1527/autoshop", "auto", "1234");
+                    myStat=myCon.createStatement();
+                    myRes = myStat.executeQuery(query);
+                    DefaultTableModel model = (DefaultTableModel)tableStock.getModel();
+                    model.setRowCount(0);
+                   
+                    while(myRes.next())
+                    {
+                        int id = myRes.getInt("ID");
+                        String itemName= myRes.getString("itemName");
+                        int qty= myRes.getInt("qty");
+                        int price= myRes.getInt("price");
+                        String cat = myRes.getString("category");
+                        
+                        model.addRow(new Object[]{id, itemName, qty,cat,price});
+                    }
+                }
+                catch(SQLException e)
+                {
+                    e.printStackTrace();
+                    System.out.println(e);
+                }
+        
     }//GEN-LAST:event_btnSearchItemNameActionPerformed
 
     private void fieldSearchItemNameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_fieldSearchItemNameActionPerformed
         // TODO add your handling code here:
+        
     }//GEN-LAST:event_fieldSearchItemNameActionPerformed
 
     private void btnDeleteItemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDeleteItemActionPerformed
