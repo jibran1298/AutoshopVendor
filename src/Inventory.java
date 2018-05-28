@@ -147,15 +147,20 @@ public class Inventory extends javax.swing.JFrame {
             }
         });
         tableStock.setRowHeight(25);
+        tableStock.addMouseMotionListener(new java.awt.event.MouseMotionAdapter() {
+            public void mouseDragged(java.awt.event.MouseEvent evt) {
+                tableStockMouseDragged(evt);
+            }
+        });
         tableStock.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseReleased(java.awt.event.MouseEvent evt) {
+                tableStockMouseReleased(evt);
+            }
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 tableStockMouseClicked(evt);
             }
             public void mouseExited(java.awt.event.MouseEvent evt) {
                 tableStockMouseExited(evt);
-            }
-            public void mouseReleased(java.awt.event.MouseEvent evt) {
-                tableStockMouseReleased(evt);
             }
         });
         jScrollPane1.setViewportView(tableStock);
@@ -420,7 +425,7 @@ public class Inventory extends javax.swing.JFrame {
         del.executeUpdate(query);
         System.out.println("Item Deleted Successfully");
         
-        JOptionPane.showMessageDialog(null, "Item Deleted");
+        JOptionPane.showMessageDialog(null, "Item Deleted Successfully");
         }
         catch(SQLException e)
         {
@@ -457,6 +462,7 @@ public class Inventory extends javax.swing.JFrame {
         String query = "Update AUTO.ITEMS Set PRICE = "+price+" , QTY = "+qty+" ,  ITEMNAME = '"+name+"' "+"  ,CATEGORY = '"+cat+"'"+"  where ID="+fieldItemID.getText();
         Statement upd = myCon.createStatement();
         upd.executeUpdate(query);
+        JOptionPane.showMessageDialog(null, "Item Updated Successfully");
         System.out.println("Item Updated Successfully");
         }
         catch(SQLException e)
@@ -512,6 +518,11 @@ public class Inventory extends javax.swing.JFrame {
     private void tableStockMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tableStockMouseExited
 
     }//GEN-LAST:event_tableStockMouseExited
+
+    private void tableStockMouseDragged(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tableStockMouseDragged
+        // TODO add your handling code here:
+        
+    }//GEN-LAST:event_tableStockMouseDragged
 
     /**
      * @param args the command line arguments

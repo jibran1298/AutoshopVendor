@@ -13,7 +13,7 @@ public class AddNew extends javax.swing.JFrame {
     ResultSet myRes = null;
     PreparedStatement add = null;
     Statement myStat = null;
-    
+
     
     public AddNew() {
         initComponents();
