@@ -1,10 +1,67 @@
+
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.sql.Statement;
+import javax.swing.JOptionPane;
+import javax.swing.table.DefaultTableModel;
+
 public class Login extends javax.swing.JFrame {
 
+    Connection myCon = null;
+    Statement myStat = null;
+    ResultSet myRes = null;
+    int loggedInUser ;
+    
     
     public Login() {
         initComponents();
+        loggedInUser = 0;
         setLocationRelativeTo(null); // To Start Login Screen From Center of Screen
         setTitle("Login - Autoshop Vendor");
+    }
+    public void authenticate(String user,String pass)
+    {
+        System.out.println(user);
+        System.out.println(pass);
+        try
+                {
+                    String query = "select * from AUTO.LOGIN";
+                    myCon = DriverManager.getConnection("jdbc:derby://localhost:1527/autoshop", "auto", "1234");
+                    myStat=myCon.createStatement();
+                    myRes = myStat.executeQuery(query);
+                    while(myRes.next())
+                    {
+                        int id = myRes.getInt("ID");
+                        String username= myRes.getString("USERNAME");
+                        String password = myRes.getString("PASSWORD");
+                        
+                        if(user.contains(username) && password.contains(pass))
+                        {
+                            //Login Success 
+                            loggedInUser = id;
+                        }    
+                    }
+                    
+                    if(loggedInUser!=0)
+                    {
+                        JOptionPane.showMessageDialog(null, "Logged In Successfully ");
+                        this.hide();
+                        Main m = new Main(loggedInUser);
+                        m.show();
+                        loggedInUser = 0;
+                    }
+                    else
+                    {
+                        JOptionPane.showMessageDialog(null, "Invalid Username or Password");
+                    }
+                }
+                catch(SQLException e)
+                {
+                    e.printStackTrace();
+                    System.out.println(e);
+                }
     }
     /**
      * This method is called from within the constructor to initialize the form.
@@ -37,7 +94,7 @@ public class Login extends javax.swing.JFrame {
         });
 
         fieldUsername.setFont(new java.awt.Font("Tahoma", 1, 16)); // NOI18N
-        fieldUsername.setText("talha");
+        fieldUsername.setText("Maryam");
         fieldUsername.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 fieldUsernameActionPerformed(evt);
@@ -60,7 +117,7 @@ public class Login extends javax.swing.JFrame {
         labelPassword.setText("Password : ");
 
         fieldPassword.setFont(new java.awt.Font("Tahoma", 1, 15)); // NOI18N
-        fieldPassword.setText("pass");
+        fieldPassword.setText("1234");
         fieldPassword.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 fieldPasswordActionPerformed(evt);
@@ -128,17 +185,8 @@ public class Login extends javax.swing.JFrame {
         
         String user = fieldUsername.getText();
         String pass = fieldPassword.getText();
-        if(user.contains("talha") && pass.contains("pass"))
-        {
-            System.out.println("Logged In Successfully");
-            this.hide();
-            Main m = new Main();
-            m.show();
-        }
-        else 
-        {
-            System.out.println("Wrong Username or Password ! ");
-        }
+        
+        authenticate(user, pass);
     }//GEN-LAST:event_btnLoginActionPerformed
 
     private void fieldPasswordActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_fieldPasswordActionPerformed

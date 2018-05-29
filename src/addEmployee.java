@@ -5,6 +5,7 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+import javax.swing.JOptionPane;
 
 /*
  * To change this license header, choose License Headers in Project Properties.
@@ -156,6 +157,7 @@ public class addEmployee extends javax.swing.JFrame {
             pre.setString(3, address);
             int row = pre.executeUpdate();
             System.out.println("Employee Added Successfully");
+            JOptionPane.showMessageDialog(null, "Employee Added Successfully");
         }
         catch(SQLException e)
         {

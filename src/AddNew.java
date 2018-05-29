@@ -298,8 +298,7 @@ public class AddNew extends javax.swing.JFrame {
             e.printStackTrace();
         }
         this.dispose();
-        Inventory obj = new Inventory();
-        obj.show();
+       
         
         
     }//GEN-LAST:event_btnAddItemActionPerformed

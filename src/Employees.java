@@ -93,8 +93,10 @@ public class Employees extends javax.swing.JFrame {
         labelInventoryHeading = new javax.swing.JLabel();
         btnBack = new javax.swing.JButton();
         jSeparator1 = new javax.swing.JSeparator();
+        btnRefresh = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setResizable(false);
 
         labelEmployeeId.setFont(new java.awt.Font("Tahoma", 1, 13)); // NOI18N
         labelEmployeeId.setForeground(new java.awt.Color(51, 102, 255));
@@ -246,6 +248,14 @@ public class Employees extends javax.swing.JFrame {
             }
         });
         jScrollPane1.setViewportView(tableEmp);
+        if (tableEmp.getColumnModel().getColumnCount() > 0) {
+            tableEmp.getColumnModel().getColumn(1).setMinWidth(250);
+            tableEmp.getColumnModel().getColumn(1).setPreferredWidth(250);
+            tableEmp.getColumnModel().getColumn(2).setPreferredWidth(100);
+            tableEmp.getColumnModel().getColumn(2).setMaxWidth(100);
+            tableEmp.getColumnModel().getColumn(3).setMinWidth(200);
+            tableEmp.getColumnModel().getColumn(3).setPreferredWidth(200);
+        }
 
         labelInventoryHeading.setFont(new java.awt.Font("Tahoma", 1, 28)); // NOI18N
         labelInventoryHeading.setForeground(new java.awt.Color(0, 0, 153));
@@ -256,6 +266,14 @@ public class Employees extends javax.swing.JFrame {
         btnBack.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnBackActionPerformed(evt);
+            }
+        });
+
+        btnRefresh.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        btnRefresh.setText("Refresh");
+        btnRefresh.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnRefreshActionPerformed(evt);
             }
         });
 
@@ -313,6 +331,8 @@ public class Employees extends javax.swing.JFrame {
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                         .addComponent(labelInventoryHeading)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(btnRefresh)
+                        .addGap(30, 30, 30)
                         .addComponent(btnBack, javax.swing.GroupLayout.PREFERRED_SIZE, 244, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap())
         );
@@ -320,9 +340,11 @@ public class Employees extends javax.swing.JFrame {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(btnBack, javax.swing.GroupLayout.PREFERRED_SIZE, 55, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(labelInventoryHeading))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(btnBack, javax.swing.GroupLayout.PREFERRED_SIZE, 55, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(labelInventoryHeading))
+                    .addComponent(btnRefresh, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -379,7 +401,7 @@ public class Employees extends javax.swing.JFrame {
         String searchName = fieldSearchEmployeeName.getText();
         System.out.println(searchName);
         try{
-            String query ="SELECT * FROM AUTO.EMPLOYEES Where Name='"+fieldSearchEmployeeName.getText()+"'";
+            String query ="SELECT * FROM AUTO.EMPLOYEES Where Name Like '%"+searchName+"%'";
            
             Statement search=myCon.createStatement();
             myRes = search.executeQuery(query);
@@ -555,9 +577,13 @@ public class Employees extends javax.swing.JFrame {
     private void btnBackActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBackActionPerformed
         // Moving Back to Dashboard From New Sale Page
         this.dispose();
-        Main m = new Main();
-        m.show();
+        
     }//GEN-LAST:event_btnBackActionPerformed
+
+    private void btnRefreshActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRefreshActionPerformed
+        // TODO add your handling code here:
+        getEmployees();
+    }//GEN-LAST:event_btnRefreshActionPerformed
 
     /**
      * @param args the command line arguments
@@ -598,6 +624,7 @@ public class Employees extends javax.swing.JFrame {
     private javax.swing.JButton btnAddItemNew;
     private javax.swing.JButton btnBack;
     private javax.swing.JButton btnDeleteItem;
+    private javax.swing.JButton btnRefresh;
     private javax.swing.JButton btnSearchEmployeeId;
     private javax.swing.JButton btnSearchEmployeeName;
     private javax.swing.JButton btnUpdateItem;
