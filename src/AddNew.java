@@ -13,6 +13,7 @@ public class AddNew extends javax.swing.JFrame {
     ResultSet myRes = null;
     PreparedStatement add = null;
     Statement myStat = null;
+    String selected;
 
     
     public AddNew() {
@@ -22,6 +23,7 @@ public class AddNew extends javax.swing.JFrame {
         dialogCategory.setLocationRelativeTo(null);
         dialogCategory.setTitle("Add New Category");
         dialogCategory.setSize(310, 160);
+        selected = "Mechanical";
     }
     
     
@@ -47,7 +49,8 @@ public class AddNew extends javax.swing.JFrame {
         labelCategory = new javax.swing.JLabel();
         btnCancel = new javax.swing.JButton();
         jSeparator1 = new javax.swing.JSeparator();
-        jButton1 = new javax.swing.JButton();
+        labelItemOther = new javax.swing.JLabel();
+        fieldAddOther = new javax.swing.JTextField();
 
         dialogCategory.setAlwaysOnTop(true);
         dialogCategory.setModal(true);
@@ -140,7 +143,12 @@ public class AddNew extends javax.swing.JFrame {
             }
         });
 
-        fieldAddItemCategory.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Other", "Mobile", "Laptop", "Tablet", " " }));
+        fieldAddItemCategory.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Mechanical", "Electrical", "Spare Parts" }));
+        fieldAddItemCategory.addItemListener(new java.awt.event.ItemListener() {
+            public void itemStateChanged(java.awt.event.ItemEvent evt) {
+                fieldAddItemCategoryItemStateChanged(evt);
+            }
+        });
         fieldAddItemCategory.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 fieldAddItemCategoryActionPerformed(evt);
@@ -161,13 +169,9 @@ public class AddNew extends javax.swing.JFrame {
             }
         });
 
-        jButton1.setFont(new java.awt.Font("Ubuntu", 1, 15)); // NOI18N
-        jButton1.setText("New");
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
-            }
-        });
+        labelItemOther.setFont(new java.awt.Font("Ubuntu", 1, 15)); // NOI18N
+        labelItemOther.setLabelFor(fieldAddItemCategory);
+        labelItemOther.setText("Engine #");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -176,32 +180,30 @@ public class AddNew extends javax.swing.JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(fieldAddItemCategory, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jSeparator1)
                     .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(labelInventoryHeading)
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(btnAddItem, javax.swing.GroupLayout.PREFERRED_SIZE, 154, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(18, 18, 18)
-                                .addComponent(btnCancel, javax.swing.GroupLayout.PREFERRED_SIZE, 157, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addComponent(labelItemName)
-                            .addGroup(layout.createSequentialGroup()
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(fieldAddItemQuantity, javax.swing.GroupLayout.PREFERRED_SIZE, 123, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(labelQuantity))
-                                .addGap(18, 18, 18)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(labelItemPrice)
-                                    .addComponent(fieldAddItemPrice)))
-                            .addGroup(layout.createSequentialGroup()
+                        .addComponent(btnAddItem, javax.swing.GroupLayout.PREFERRED_SIZE, 154, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(btnCancel, javax.swing.GroupLayout.PREFERRED_SIZE, 157, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                .addComponent(labelInventoryHeading)
+                                .addComponent(labelItemName)
+                                .addGroup(layout.createSequentialGroup()
+                                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                        .addComponent(fieldAddItemQuantity, javax.swing.GroupLayout.PREFERRED_SIZE, 123, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addComponent(labelQuantity))
+                                    .addGap(18, 18, 18)
+                                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                        .addComponent(labelItemPrice)
+                                        .addComponent(fieldAddItemPrice, javax.swing.GroupLayout.DEFAULT_SIZE, 188, Short.MAX_VALUE)))
                                 .addComponent(labelCategory)
-                                .addGap(59, 59, 59))
-                            .addComponent(fieldAddItemName)
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(fieldAddItemCategory, javax.swing.GroupLayout.PREFERRED_SIZE, 244, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(jButton1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                                .addComponent(fieldAddItemName))
+                            .addComponent(labelItemOther))
                         .addGap(0, 0, Short.MAX_VALUE))
-                    .addComponent(jSeparator1))
+                    .addComponent(fieldAddOther, javax.swing.GroupLayout.DEFAULT_SIZE, 329, Short.MAX_VALUE))
                 .addContainerGap())
         );
         layout.setVerticalGroup(
@@ -228,14 +230,16 @@ public class AddNew extends javax.swing.JFrame {
                 .addGap(11, 11, 11)
                 .addComponent(labelCategory)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(fieldAddItemCategory, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jButton1))
-                .addGap(18, 18, 18)
+                .addComponent(fieldAddItemCategory, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(labelItemOther)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(fieldAddOther, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 21, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btnAddItem, javax.swing.GroupLayout.PREFERRED_SIZE, 55, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(btnCancel, javax.swing.GroupLayout.PREFERRED_SIZE, 55, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap())
         );
 
         pack();
@@ -246,12 +250,6 @@ public class AddNew extends javax.swing.JFrame {
        
         this.dispose();
     }//GEN-LAST:event_btnCancelActionPerformed
-
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        // TODO add your handling code here:
-           dialogCategory.show();
-           
-    }//GEN-LAST:event_jButton1ActionPerformed
 
     private void fieldAddItemCategoryActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_fieldAddItemCategoryActionPerformed
         // TODO add your handling code here:
@@ -269,39 +267,64 @@ public class AddNew extends javax.swing.JFrame {
 
     private void btnAddItemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAddItemActionPerformed
         // TODO add your handling code here:
-        
-        String itemName = fieldAddItemName.getText();
-        int itemCategoryIndex = fieldAddItemCategory.getSelectedIndex();
-        String itemCategory = fieldAddItemCategory.getItemAt(itemCategoryIndex);
-        String price = fieldAddItemPrice.getText();
-        String qty = fieldAddItemQuantity.getText();
-        try{
-            
-            myCon = DriverManager.getConnection("jdbc:derby://localhost:1527/autoshop", "auto", "1234");
-            
-                    
-            String query = "INSERT INTO AUTO.ITEMS"
-		+ "(PRICE, ITEMNAME, QTY,CATEGORY) VALUES"
-		+ "(?,?,?,?)";
-            add =  myCon.prepareStatement(query);
-            
-            add.setString(1, price);
-            add.setString(2, itemName);
-            add.setString(3, qty);
-            add.setString(4, itemCategory);
-            int row = add.executeUpdate();
-            System.out.println("Item Added Successfully");
-            
-        }
-        catch(SQLException e)
+        if(selected=="Electrical")
         {
-            e.printStackTrace();
+            System.out.println("Added Electrical item");
+            Electrical obj = new Electrical();
+            obj.name = fieldAddItemName.getText();
+            obj.price = Integer.parseInt(fieldAddItemPrice.getText());
+            obj.quantity = Integer.parseInt(fieldAddItemQuantity.getText());
+            obj.voltageType = fieldAddOther.getText();
+            obj.saveItem();
         }
+        else if(selected=="Mechanical")
+        {
+            System.out.println("Added Mechanical item");
+             
+            Mechanical obj = new Mechanical();
+            obj.name = fieldAddItemName.getText();
+            obj.price = Integer.parseInt(fieldAddItemPrice.getText());
+            obj.quantity = Integer.parseInt(fieldAddItemQuantity.getText());
+            obj.engineNumber = Integer.parseInt(fieldAddOther.getText());
+            obj.saveItem();
+        }
+        else if(selected=="Spare Parts")
+        {
+            System.out.println("Added Spare Parts");
+            
+            SpareParts obj = new SpareParts();
+            obj.name = fieldAddItemName.getText();
+            obj.price = Integer.parseInt(fieldAddItemPrice.getText());
+            obj.quantity = Integer.parseInt(fieldAddItemQuantity.getText());
+            obj.partType= fieldAddOther.getText();
+            obj.saveItem();
+        }
+        
         this.dispose();
        
         
         
     }//GEN-LAST:event_btnAddItemActionPerformed
+
+    private void fieldAddItemCategoryItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_fieldAddItemCategoryItemStateChanged
+        // TODO add your handling code here:
+        System.out.println("State Changed");
+        selected = fieldAddItemCategory.getSelectedItem().toString();
+        System.out.println(selected);
+        if(selected=="Electrical")
+        {
+            labelItemOther.setText("Voltage Type (AC/DC) : ");
+        }
+        else if(selected=="Mechanical")
+        {
+            labelItemOther.setText("Engine # ");
+        }
+        else if(selected=="Spare Parts")
+        {
+            labelItemOther.setText("Part Type : ");
+        }
+        
+    }//GEN-LAST:event_fieldAddItemCategoryItemStateChanged
 
     /**
      * @param args the command line arguments
@@ -348,7 +371,7 @@ public class AddNew extends javax.swing.JFrame {
     private javax.swing.JTextField fieldAddItemName;
     private javax.swing.JTextField fieldAddItemPrice;
     private javax.swing.JTextField fieldAddItemQuantity;
-    private javax.swing.JButton jButton1;
+    private javax.swing.JTextField fieldAddOther;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JSeparator jSeparator1;
     private javax.swing.JTextField jTextField1;
@@ -356,6 +379,7 @@ public class AddNew extends javax.swing.JFrame {
     private javax.swing.JLabel labelInventoryHeading;
     private javax.swing.JLabel labelInventoryHeading1;
     private javax.swing.JLabel labelItemName;
+    private javax.swing.JLabel labelItemOther;
     private javax.swing.JLabel labelItemPrice;
     private javax.swing.JLabel labelQuantity;
     // End of variables declaration//GEN-END:variables

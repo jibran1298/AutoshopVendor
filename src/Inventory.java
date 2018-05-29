@@ -531,6 +531,8 @@ public class Inventory extends javax.swing.JFrame {
         AddNew ad = new AddNew();
         ad.show();
         
+        
+        
     }//GEN-LAST:event_btnAddItemNewActionPerformed
 
     private void btnUpdateItemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnUpdateItemActionPerformed
